@@ -19,23 +19,36 @@ public class AnimalFactoryTest {
 
     @Test
     public void createDogTest(){
-        Dog dog = AnimalFactory.createDog("Rudy", new Date());
+        Dog dog = AnimalFactory.createDog("Rudy", new Date(1986, 7, 29));
 
-        String expected = "rocks.zipcodewilmington.animals.Dog";
+        String expectedClass = "rocks.zipcodewilmington.animals.Dog";
+        String expectedName = "Rudy";
+        Date expectedDate = new Date(1986 ,7, 29);
 
-        String actual = dog.getClass().getName();
 
-        Assert.assertEquals(expected, actual);
+        String actualClass = dog.getClass().getName();
+        String actualName = dog.getName();
+        Date actualDate = dog.getBirthDate();
+
+        Assert.assertEquals(expectedClass, actualClass);
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedDate, actualDate);
     }
 
     @Test
     public void createCatTest(){
-        Cat cat = AnimalFactory.createCat("Kimba", new Date());
+        Cat cat = AnimalFactory.createCat("Kimba", new Date(1986, 7, 29));
 
-        String expected = "rocks.zipcodewilmington.animals.Cat";
+        String expectedClass = "rocks.zipcodewilmington.animals.Cat";
+        String expectedName = "Kimba";
+        Date expectedDate = new Date(1986 ,7, 29);
 
-        String actual = cat.getClass().getName();
+        String actualClass = cat.getClass().getName();
+        String actualName = cat.getName();
+        Date actualDate = cat.getBirthDate();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expectedClass, actualClass);
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedDate, actualDate);
     }
 }
