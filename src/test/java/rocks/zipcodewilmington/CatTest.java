@@ -2,7 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
+import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 
 import java.util.Date;
 
@@ -40,4 +43,119 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
 
+    @Test
+    public void setNameTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+
+        String expected = "CHONKY";
+
+        // When (a cat is constructed)
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+
+        // When
+        cat.setName("CHONKY");
+        String actual = cat.getName();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void speakTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+
+        String expected = "meow!";
+
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+
+        String actual = cat.speak();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+
+        Date expected = new Date(1986, 7, 29);
+
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+
+        cat.setBirthDate(expected);
+        Date actual = cat.getBirthDate();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatTest() {
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+        int expected = 6;
+
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+        Food food = new Food();
+
+        cat.eat(food);
+        cat.eat(food);
+        cat.eat(food);
+        cat.eat(food);
+        cat.eat(food);
+        cat.eat(food);
+
+        int actual = cat.getNumberOfMealsEaten();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getIDTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+        int givenID = 99;
+
+        int expected = 99;
+
+        // When (a cat is constructed)
+        Cat cat = new Cat(givenName, givenBirthDate, givenID);
+
+        // When
+        int actual = cat.getId();
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void animalInheritanceTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+
+        String expected = "meow!";
+
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+
+        Assert.assertTrue(cat instanceof Animal);
+    }
+
+    @Test
+    public void mammalInheritanceTest() {
+        // Given (cat data)
+        String givenName = "FATCAT";
+        Date givenBirthDate = new Date();
+
+        String expected = "meow!";
+
+        Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
+
+        Assert.assertTrue(cat instanceof Mammal);
+    }
 }
