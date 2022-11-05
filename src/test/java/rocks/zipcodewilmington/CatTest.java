@@ -99,14 +99,14 @@ public class CatTest {
         int expected = 6;
 
         Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
-        Food food = new Food();
+        Food catChow = new Food();
 
-        cat.eat(food);
-        cat.eat(food);
-        cat.eat(food);
-        cat.eat(food);
-        cat.eat(food);
-        cat.eat(food);
+        cat.eat(catChow);
+        cat.eat(catChow);
+        cat.eat(catChow);
+        cat.eat(catChow);
+        cat.eat(catChow);
+        cat.eat(catChow);
 
         int actual = cat.getNumberOfMealsEaten();
 
