@@ -64,7 +64,6 @@ public class CatTest {
 
     @Test
     public void speakTest() {
-        // Given (cat data)
         String givenName = "FATCAT";
         Date givenBirthDate = new Date();
 
@@ -116,30 +115,23 @@ public class CatTest {
 
     @Test
     public void getIDTest() {
-        // Given (cat data)
         String givenName = "FATCAT";
         Date givenBirthDate = new Date();
         int givenID = 99;
 
         int expected = 99;
 
-        // When (a cat is constructed)
         Cat cat = new Cat(givenName, givenBirthDate, givenID);
 
-        // When
         int actual = cat.getId();
 
-        // Then
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void animalInheritanceTest() {
-        // Given (cat data)
         String givenName = "FATCAT";
         Date givenBirthDate = new Date();
-
-        String expected = "meow!";
 
         Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
 
@@ -148,11 +140,8 @@ public class CatTest {
 
     @Test
     public void mammalInheritanceTest() {
-        // Given (cat data)
         String givenName = "FATCAT";
         Date givenBirthDate = new Date();
-
-        String expected = "meow!";
 
         Cat cat = AnimalFactory.createCat(givenName, givenBirthDate);
 
